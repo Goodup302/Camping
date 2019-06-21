@@ -6,6 +6,7 @@
 package controlleurs;
 
 import camping.ButtonMenu;
+import camping.Config;
 import javafx.scene.control.Label;
 import camping.ConnectionDB;
 import static java.awt.MouseInfo.getPointerInfo;
@@ -77,6 +78,18 @@ public class MainController extends ButtonMenu implements Initializable {
         {184,507},{196,539},{207,572},{203,506},{213,530},{225,560},
     };
     
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ArrayList<String> client = clientDevis();
+        if(client != null) {
+            labelWarning.setText("Le(s) clients : \n\n");
+            for(int i = 0; i < client.size(); i++){
+                labelWarning.setText(labelWarning.getText() + " - " + client.get(i) + "\n");
+            }
+            labelWarning.setText(labelWarning.getText() + "\n n'ont pas confirmés leur devis.");
+        }
+    }
+    
     public void testDate(){
         if(datePickerDebut.getValue() != null && datePickerFin.getValue() != null){
             ArrayList<Integer> idEmplacements = afficherPoints();
@@ -91,28 +104,7 @@ public class MainController extends ButtonMenu implements Initializable {
             }
         }
     }
-    /*
-    public void test(){
-            
-        try {
-            ConnectionDB connectionClass = new ConnectionDB();
-            Connection connection;
-            connection = connectionClass.connect();
-            String sql = "select id, numero from emplacements";
-            ResultSet rs = connection.createStatement().executeQuery(sql);
-            ObservableList<PetitRond> rondList = FXCollections.observableArrayList();
-            while(rs.next()){
-                PetitRond rond = new PetitRond(rs.getInt("id"), rs.getString("numero"));
-                rondList.add(rond);
-            }
-            System.out.println(rondList.get(0).getNom());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (SQLException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    */
+    
     public ArrayList afficherPoints(){
         try {
             java.sql.Date dateDebut = java.sql.Date.valueOf(datePickerDebut.getValue());
@@ -159,40 +151,25 @@ public class MainController extends ButtonMenu implements Initializable {
     }
     
     public ArrayList clientDevis(){
-    try {
-        LocalDate twoDaysAgo = LocalDate.now().minusDays(2);
-        System.out.println(twoDaysAgo);
-        Connection database = ConnectionDB.get();
-        String sql = "SELECT clients.nom, clients.prenom from clients "
-                + "inner join bill on clients.id = bill.idClient "
-                + "where bill.dateCree < '" + twoDaysAgo +"' and bill.payé = 0";
-        Statement stmt = database.createStatement();
-        ResultSet rs = stmt.executeQuery(sql);
-        ArrayList<String> client = new ArrayList<>();
-        while(rs.next()){
-            String temp;
-            temp = rs.getString("prenom") + " " + rs.getString("nom");
-            client.add(temp);
+        try {
+            LocalDate twoDaysAgo = LocalDate.now().minusDays(2);
+            System.out.println(twoDaysAgo);
+            Connection database = ConnectionDB.get();
+            String sql = "SELECT clients.nom, clients.prenom from clients "
+                    + "inner join bill on clients.id = bill.idClient "
+                    + "where bill.dateCree < '" + twoDaysAgo +"' and bill.payé = 0";
+            Statement stmt = database.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            ArrayList<String> client = new ArrayList<>();
+            while(rs.next()){
+                String temp;
+                temp = rs.getString("prenom") + " " + rs.getString("nom");
+                client.add(temp);
+            }
+            return client;
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return client;
-    } catch (SQLException ex) {
-        Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    return null;
-    }
-    
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<String> client = clientDevis();
-
-        if(client != null){
-        labelWarning.setText("Le(s) clients : \n\n");
-        for(int i = 0; i < client.size(); i++){
-        labelWarning.setText(labelWarning.getText() + " - " + client.get(i) + "\n");
-        }
-        labelWarning.setText(labelWarning.getText() + "\n n'ont pas confirmés leur devis.");
-        }
-        
+        return null;
     }
 }

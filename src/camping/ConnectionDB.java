@@ -5,23 +5,16 @@
  */
 package camping;
 
-import com.mysql.jdbc.Driver;
 import java.sql.Connection ;
 import java.sql.DriverManager ;
 import java.sql.SQLException ;
 
 public class ConnectionDB {
-
-    final static String SERVER = "127.0.0.1:3306";
-    final static String DB_NAME = "test";
-    final static String UNERNAME = "root";
-    final static String PASSWORD = "";
-    
     public static Connection connection;
     
     public static Connection get() throws SQLException{
         if (ConnectionDB.connection == null) {
-            ConnectionDB.connection = DriverManager.getConnection("jdbc:mysql://"+SERVER+"/"+DB_NAME, UNERNAME, PASSWORD);
+            ConnectionDB.connection = DriverManager.getConnection("jdbc:mysql://"+Config.sqlServer+"/"+Config.sqlDbName, Config.sqlUser, Config.sqlPassword);
         }
         return ConnectionDB.connection;
     }
