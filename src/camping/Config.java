@@ -19,9 +19,9 @@ public class Config {
     public static String sqlPassword;
     public static String sqlUser;
     
-    public Config() {
+    public static void init() {
         try {
-            Properties prop = this.load("src/camping/config.properties");
+            Properties prop = Config.load("src/camping/config.properties");
             String test = prop.getProperty("sql.server");
             //Sql config
             Config.sqlServer = prop.getProperty("sql.server");
@@ -33,7 +33,7 @@ public class Config {
         }
     }
     
-    public Properties load(String filename) throws IOException, FileNotFoundException{
+    public static Properties load(String filename) throws IOException, FileNotFoundException{
         Properties properties = new Properties();
         FileInputStream input = new FileInputStream(filename); 
         try{

@@ -16,11 +16,9 @@ import javafx.stage.Stage;
  */
 public class Camping extends Application {
     
-    static Config config;
-    
     @Override
     public void start(Stage stage) throws Exception {
-        Camping.config = new Config();
+        Config.init();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Camping.jar" size="8476768" download="eager" />
+    <jar href="Camping.jar" size="8476752" download="eager" />
     <jar href="lib\itextpdf-5.5.13.jar" size="2320581" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
