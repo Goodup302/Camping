@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ok" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleurs.MainController">
+   <children>
+      <ImageView fx:id="camping" fitHeight="619.0" fitWidth="865.0" layoutX="154.0" layoutY="64.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="/style/Camping.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageHome" fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="14.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/style/iconHome.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageDisconnect" fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="644.0" onMouseClicked="#disconnect" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/style/iconShutdown.png" />
+         </image>
+      </ImageView>
+      <DatePicker fx:id="datePickerDebut" layoutX="556.0" layoutY="23.0" onAction="#testDate" />
+      <DatePicker fx:id="datePickerFin" layoutX="792.0" layoutY="23.0" onAction="#testDate" />
+      <Label layoutX="499.0" layoutY="27.0" text="Entre :" />
+      <Label layoutX="759.0" layoutY="27.0" text="et :" />
+      <JFXButton fx:id="buttonReservations" layoutX="9.0" layoutY="290.0" onAction="#reservation" text="Reservations" />
+      <JFXButton fx:id="buttonFactures" layoutX="22.0" layoutY="337.0" onAction="#factures" text="Factures" />
+      <JFXButton fx:id="buttonClients" layoutX="24.0" layoutY="385.0" onAction="#clients" text="Clients" />
+      <Label fx:id="labelWarning" layoutX="649.0" layoutY="56.0" textFill="#ff5300" />
+      <Label fx:id="labelWarning" layoutX="154.0" layoutY="48.0" prefHeight="110.0" prefWidth="174.0" textFill="#ff6e00" />
+   </children>
+</AnchorPane>
