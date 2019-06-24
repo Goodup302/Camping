@@ -9,7 +9,7 @@ import javafx.scene.shape.Circle;
  *
  * @author Eiwan
  */
-public class PetitRond {
+public class IconCircle {
     
     @FXML
     private AnchorPane main;
@@ -21,7 +21,7 @@ public class PetitRond {
     private Color color;
     
     
-    public PetitRond(int id, String nom){
+    public IconCircle(int id, String nom){
         this.id = id;
         this.nom = nom;
     }

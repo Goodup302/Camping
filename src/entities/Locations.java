@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package camping;
+package entities;
 
+import camping.ConnectionDB;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;

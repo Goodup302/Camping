@@ -6,7 +6,7 @@
 package controlleurs;
 
 import camping.ButtonMenu;
-import camping.Client;
+import entities.Client;
 import camping.ConnectionDB;
 import java.io.IOException;
 import java.net.URL;
