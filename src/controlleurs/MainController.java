@@ -5,10 +5,10 @@
  */
 package controlleurs;
 
-import camping.ButtonMenu;
-import camping.Config;
+import controlleurs.components.ButtonMenu;
+import utils.Config;
 import javafx.scene.control.Label;
-import camping.ConnectionDB;
+import utils.ConnectionDB;
 import static java.awt.MouseInfo.getPointerInfo;
 import java.net.URL;
 import java.sql.Connection;

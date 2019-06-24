@@ -5,9 +5,9 @@
  */
 package controlleurs;
 
-import camping.ButtonMenu;
+import controlleurs.components.ButtonMenu;
 import entities.Client;
-import camping.ConnectionDB;
+import utils.ConnectionDB;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;

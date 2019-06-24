@@ -5,7 +5,7 @@
  */
 package entities;
 
-import camping.ConnectionDB;
+import utils.ConnectionDB;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;

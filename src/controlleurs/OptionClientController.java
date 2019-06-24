@@ -5,7 +5,7 @@
  */
 package controlleurs;
 
-import camping.ButtonMenu;
+import controlleurs.components.ButtonMenu;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;

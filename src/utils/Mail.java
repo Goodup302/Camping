@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package camping;
+package utils;
 
 import javax.mail.PasswordAuthentication;
 import java.util.Properties;
