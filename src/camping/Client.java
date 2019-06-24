@@ -39,6 +39,8 @@ public class Client {
     public Client(){}
 
     //GETTER - SETTERS
+    
+    public int getId() {return id;}
     public String getNom() {return nom;}
     public String getPrenom() {return prenom;}
     public String getNumTel() {return numTel;}

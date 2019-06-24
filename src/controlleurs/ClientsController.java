@@ -27,6 +27,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -80,6 +81,9 @@ public class ClientsController extends ButtonMenu implements Initializable {
     @FXML
     private TableColumn<Client, String> columnAdresse;
     
+    @FXML
+    private TableColumn<Client, Integer> columnId;
+    
     //@FXML
     //private TableColumn<Client, Date> columnNaissance;
     
@@ -107,7 +111,15 @@ public class ClientsController extends ButtonMenu implements Initializable {
     @FXML
     private ComboBox comboAnnee;
     
+    @FXML
+    private RadioButton radioMme;
+    
+    @FXML
+    private RadioButton radioMr;
+    
     private ObservableList<ObservableList> data;
+    
+    public int idClient;
     
     String[] mois = {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
                             "Juillet", "Aout", "Septembre", "Octobre", "Novembre",
@@ -137,10 +149,9 @@ public class ClientsController extends ButtonMenu implements Initializable {
         columnTel.setCellValueFactory(new PropertyValueFactory<>(Client.NUM_TEL));
         columnFix.setCellValueFactory(new PropertyValueFactory<>(Client.NUM_FIX));
         columnMail.setCellValueFactory(new PropertyValueFactory<>(Client.MAIL));
-        //columnNaissance.setCellValueFactory(new PropertyValueFactory<>(Client.DATE_NAISSANCE));     
+        columnId.setCellValueFactory(new PropertyValueFactory<>("id"));    
         columnAdresse.setCellValueFactory(new PropertyValueFactory<>(Client.ADRESSE)); 
-        //Client c = (Client) Client.getAll().get(0);
-        //System.out.println(c.getNaissance());
+        
         tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));
     }   
     
@@ -155,6 +166,7 @@ public class ClientsController extends ButtonMenu implements Initializable {
     
     @FXML
     public void buttonSelectionné() throws IOException{
+        //
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/optionClient.fxml"));
         main.getChildren().setAll(pane);
     }
@@ -219,7 +231,14 @@ public class ClientsController extends ButtonMenu implements Initializable {
             String fix = textFieldFix.getText();
             String mail = textFieldMail.getText();
             String adresse = textFieldAdresse.getText();
+            String gender;
             String moiss = "";
+            
+            if(radioMr.isSelected()){
+                gender = "Mr";
+            }else{
+                gender = "Mme";
+            }
             
             for(int i = 0; i < 12; i++){
                 if(comboMois.getValue().toString() == mois[i]){
@@ -233,7 +252,7 @@ public class ClientsController extends ButtonMenu implements Initializable {
                 java.sql.Date sqlDate = new java.sql.Date(datee.getTime());
                 System.out.println(sqlDate);
                 Connection database = ConnectionDB.get();
-                String sql = "INSERT INTO clients (nom, prenom, numTel, numFix, mail, adresse, dateNaissance) Values ('"+nom+"','"+prenom+"','"+tel+"','"+fix+"','"+mail+"','"+adresse+"','"+sqlDate+"')";
+                String sql = "INSERT INTO clients (nom, prenom, numTel, numFix, mail, adresse, dateNaissance, Civilité) Values ('"+nom+"','"+prenom+"','"+tel+"','"+fix+"','"+mail+"','"+adresse+"','"+sqlDate+"', '" + gender + "')";
                 Statement statement = database.createStatement();
                 statement.executeUpdate(sql);
                 Client.getAll();
@@ -242,6 +261,8 @@ public class ClientsController extends ButtonMenu implements Initializable {
             } catch (SQLException ex) {
                 Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
             }
+            tableViewClients.getItems().clear();
+            tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));
     }
     //}
 }

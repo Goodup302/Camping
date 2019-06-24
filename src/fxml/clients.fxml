@@ -58,9 +58,9 @@
           <TableColumn fx:id="columnNom" prefWidth="87.0" text="Nom" />
           <TableColumn fx:id="columnTel" prefWidth="106.0" text="Numéro Tel" />
           <TableColumn fx:id="columnFix" prefWidth="107.0" text="Numéro Fix" />
-          <TableColumn fx:id="columnMail" prefWidth="70.0" text="Mail" />
-          <TableColumn fx:id="columnNaissance" minWidth="0.0" prefWidth="62.0" text="Date Naissance" />
-            <TableColumn fx:id="columnAdresse" prefWidth="102.0" text="Adresse" />
+          <TableColumn fx:id="columnMail" prefWidth="107.0" text="Mail" />
+            <TableColumn fx:id="columnAdresse" minWidth="0.0" prefWidth="126.0" text="Adresse" />
+            <TableColumn fx:id="columnId" minWidth="0.0" prefWidth="10.0" text="id" visible="false" />
         </columns>
       </TableView>
       <JFXTextField layoutX="859.0" layoutY="150.0" prefHeight="25.0" prefWidth="155.0" />
@@ -73,9 +73,12 @@
       <Label fx:id="labelWarning" layoutX="851.0" layoutY="547.0" prefHeight="87.0" prefWidth="206.0" />
       <JFXTextField fx:id="textFieldAdresse" layoutX="399.0" layoutY="648.0" />
       <Label layoutX="399.0" layoutY="631.0" text="Adresse physique : " />
-      <JFXButton fx:id="buttonSelectionné" layoutX="859.0" layoutY="205.0" onAction="#buttonSelectionné" prefHeight="25.0" prefWidth="155.0" text="Options clients séléctioné" visible="false" />
+      <JFXButton fx:id="buttonSelectionné" layoutX="859.0" layoutY="205.0" onAction="#buttonSelectionné" prefHeight="31.0" prefWidth="206.0" text="Options clients séléctioné" visible="false" />
       <Label layoutX="574.0" layoutY="603.0" text="Civilité :" />
-      <JFXRadioButton layoutX="576.0" layoutY="633.0" text="Mr" />
-      <JFXRadioButton layoutX="643.0" layoutY="633.0" text="Mme" />
+      <JFXRadioButton fx:id="radioMr" layoutX="576.0" layoutY="633.0" text="Mr">
+         <toggleGroup>
+            <ToggleGroup fx:id="civilite" />
+         </toggleGroup></JFXRadioButton>
+      <JFXRadioButton fx:id="radioMme" layoutX="643.0" layoutY="633.0" selected="true" text="Mme" toggleGroup="$civilite" />
    </children>
 </AnchorPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#test" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleurs.OptionClientController">
+<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleurs.OptionClientController">
    <children>
       <ImageView fx:id="imageDisconnect" fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="643.0" onMouseClicked="#disconnect" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -44,7 +44,7 @@
       <Label layoutX="432.0" layoutY="169.0" text="Code postal :" />
       <JFXTextField fx:id="textFieldRue" layoutX="432.0" layoutY="278.0" />
       <Label layoutX="432.0" layoutY="252.0" text="Rue :" />
-      <JFXButton fx:id="buttonEnregistrer" layoutX="419.0" layoutY="539.0" onAction="#buttonEnregistrer" prefHeight="25.0" prefWidth="162.0" text="Enregistrer modifications" />
+      <JFXButton fx:id="buttonEnregistrer" layoutX="419.0" layoutY="539.0" onAction="#buttonEnregistrer" prefHeight="31.0" prefWidth="203.0" text="Enregistrer modifications" />
       <JFXRadioButton fx:id="radioMr" layoutX="163.0" layoutY="377.0" text="Mr">
          <toggleGroup>
             <ToggleGroup fx:id="gender" />
