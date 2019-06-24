@@ -1,14 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entities;
 
-/**
- *
- * @author PC-PRO
- */
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.sql.Date;
+import java.text.DecimalFormat;
+
+
 public class Bill {
+    public static String BOOKING_ID = "Booking_Id";
+    public static String DATE_CREATION = "dateCreation";
+    public static String DATE_PAID = "datePaid";
     
+    private int bookingId;
+    private int dateCreation;
+    private boolean datePaid;
+    
+    public int getBookingId() {return bookingId;}
+
+    public int getDateCreation() {return dateCreation;}
+    
+    public boolean getDatePaid() {return datePaid;}
+
+    public Bill setBookingId(int bookingId){
+        this.bookingId = bookingId;
+        return this;
+    }
+    
+    public Bill setDateCreation(int dateCreation){
+        this.dateCreation = dateCreation;
+        return this;
+    }
+    
+    public Bill setDatePaid(boolean datePaid){
+        this.datePaid = datePaid;
+        return this;
+    }
 }

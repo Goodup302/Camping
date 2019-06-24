@@ -6,7 +6,7 @@
 package controlleurs;
 
 import controlleurs.components.ButtonMenu;
-import entities.User;
+import entities.Client;
 import utils.ConnectionDB;
 import java.io.IOException;
 import java.net.URL;
@@ -61,28 +61,28 @@ public class ClientsController extends ButtonMenu implements Initializable {
     private TextField textFieldPrenom;
     
     @FXML
-    private TableView<User> tableViewClients;
+    private TableView<Client> tableViewClients;
     
     @FXML
-    private TableColumn<User, String> columnPrenom;
+    private TableColumn<Client, String> columnPrenom;
     
     @FXML
-    private TableColumn<User, String> columnNom;
+    private TableColumn<Client, String> columnNom;
     
     @FXML
-    private TableColumn<User, String> columnTel;
+    private TableColumn<Client, String> columnTel;
     
     @FXML
-    private TableColumn<User, String> columnFix;
+    private TableColumn<Client, String> columnFix;
     
     @FXML
-    private TableColumn<User, String> columnMail;
+    private TableColumn<Client, String> columnMail;
     
     @FXML
-    private TableColumn<User, String> columnAdresse;
+    private TableColumn<Client, String> columnAdresse;
     
     @FXML
-    private TableColumn<User, Integer> columnId;
+    private TableColumn<Client, Integer> columnId;
     
     //@FXML
     //private TableColumn<Client, Date> columnNaissance;
@@ -144,21 +144,21 @@ public class ClientsController extends ButtonMenu implements Initializable {
             comboJour.getItems().addAll(i);
         }
         
-        columnNom.setCellValueFactory(new PropertyValueFactory<>(User.NOM));
-        columnPrenom.setCellValueFactory(new PropertyValueFactory<>(User.PRENOM));
-        columnTel.setCellValueFactory(new PropertyValueFactory<>(User.NUM_TEL));
-        columnFix.setCellValueFactory(new PropertyValueFactory<>(User.NUM_FIX));
-        columnMail.setCellValueFactory(new PropertyValueFactory<>(User.MAIL));
+        columnNom.setCellValueFactory(new PropertyValueFactory<>(Client.NOM));
+        columnPrenom.setCellValueFactory(new PropertyValueFactory<>(Client.PRENOM));
+        columnTel.setCellValueFactory(new PropertyValueFactory<>(Client.NUM_TEL));
+        columnFix.setCellValueFactory(new PropertyValueFactory<>(Client.NUM_FIX));
+        columnMail.setCellValueFactory(new PropertyValueFactory<>(Client.MAIL));
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));    
-        columnAdresse.setCellValueFactory(new PropertyValueFactory<>(User.ADRESSE)); 
+        columnAdresse.setCellValueFactory(new PropertyValueFactory<>(Client.ADRESSE)); 
         
-        tableViewClients.setItems(FXCollections.observableArrayList(User.getAll()));
+        tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));
     }   
     
     public void test(){
         if(tableViewClients.getSelectionModel().getSelectedItem() != null){
             buttonSelectionné.setVisible(true);
-            User client = tableViewClients.getSelectionModel().getSelectedItem();
+            Client client = tableViewClients.getSelectionModel().getSelectedItem();
             System.out.println(client.getNom());
         }
          
@@ -255,14 +255,14 @@ public class ClientsController extends ButtonMenu implements Initializable {
                 String sql = "INSERT INTO clients (nom, prenom, numTel, numFix, mail, adresse, dateNaissance, Civilité) Values ('"+nom+"','"+prenom+"','"+tel+"','"+fix+"','"+mail+"','"+adresse+"','"+sqlDate+"', '" + gender + "')";
                 Statement statement = database.createStatement();
                 statement.executeUpdate(sql);
-                User.getAll();
+                Client.getAll();
             } catch (ParseException ex) {
                 Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
             }
             tableViewClients.getItems().clear();
-            tableViewClients.setItems(FXCollections.observableArrayList(User.getAll()));
+            tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));
     }
     //}
 }
