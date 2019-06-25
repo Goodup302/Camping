@@ -15,6 +15,7 @@ import utils.ConnectionDB;
 import utils.Pdf;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
+import entities.Client;
 import entities.Location;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -167,45 +168,13 @@ public class ReservationController extends ButtonMenu implements Initializable {
     }
     
     public void buttonCreerReservation(){
-        try {
-            String client = textFieldClient.getText();
-            Connection database = ConnectionDB.get();
-            String sql = "SELECT nom from clients where nom = '" + client + "'";
-            ResultSet rs = database.createStatement().executeQuery(sql);
-            ResultSetMetaData rsmd = rs.getMetaData();
-            int nbColumn = rsmd.getColumnCount();
-            ArrayList<String> sqlResult = new ArrayList<>(nbColumn);
-            while(rs.next()){
-                int i = 1;
-                while(i <= nbColumn){
-                    sqlResult.add(rs.getString(i++));
-                    
-                }
-            }
-            
-            if(sqlResult.isEmpty()){
+
+            if(!Client.checkIfClientExist(textFieldClient.getText())){
                 labelClientWarning.setText("Client non-trouvé. Veuillez le créer");
             }else{
-                labelClientWarning.setText("");
-                java.sql.Date sqlDateDebut = java.sql.Date.valueOf(datePickerDebut.getValue());
-                java.sql.Date sqlDateFin = java.sql.Date.valueOf(datePickerFin.getValue());
-                int idEmplacement = (int) comboBoxNumero.getValue();
-                int idClient = 2;
-                String sqlClient = "select id from clients where nom = '" + textFieldClient.getText() + "'";
-                ResultSet rs1 = database.createStatement().executeQuery(sqlClient);
-                while(rs1.next()){
-                    idClient = rs1.getInt("id");
-                }
-                String sql1 = "INSERT INTO locations (dateDebut, dateFin, idClient, idEmplacement) "
-                        + "Values ('"+sqlDateDebut+"','"+sqlDateFin+"','"+idClient+"','"+idEmplacement+"')";
-                Statement statement = database.createStatement();
-                statement.executeUpdate(sql1);
+                                            //? manque a creer la reservation
             }
-            
-            System.out.println(sqlResult); 
-        } catch (SQLException ex) {
-            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
     
     public void sliderPlus13Ans(){

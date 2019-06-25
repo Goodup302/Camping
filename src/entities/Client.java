@@ -9,8 +9,11 @@ import utils.ConnectionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -220,6 +223,29 @@ public class Client {
         
         return null;
     }
+    
+    public static boolean checkIfClientExist(String name){
+        try {
+            String sql = "SELECT * from User where lastName = '" + name + "' and where ";       //? Requete non-terminée; select user ou type = client
+            ResultSet rs = ConnectionDB.get().createStatement().executeQuery(sql);
+            int nbColumn = rs.getMetaData().getColumnCount();
+            ArrayList<String> sqlResult = new ArrayList<>(nbColumn);
+            while(rs.next()){
+                int i = 1;
+                while(i <= nbColumn){
+                    sqlResult.add(rs.getString(i++));
+                    
+                }
+            }
+            if(sqlResult.isEmpty()){
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+    }
+    
     /*
     public static ArrayList getUnconfirmedEstimateClient(){
         
