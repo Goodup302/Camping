@@ -9,8 +9,11 @@ import utils.ConnectionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Eiwan
@@ -109,7 +112,7 @@ public class Location {
             ResultSet rs = database.createStatement().executeQuery(sql);
             ArrayList<Location> list = new ArrayList<>();
             //
-            while(rs.next()){
+            while(rs.next()){                                                               //? besoin du resultat inverse
                 list.add((new Location()).setId(rs.getInt("id"))
                     .setNumero(rs.getInt(NUMBER))
                     .setDescription(rs.getString(TYPE_LOCATION_ID)));
@@ -117,6 +120,25 @@ public class Location {
             //
             return list;
         } catch (Exception e) {e.printStackTrace();;}
+        
+        return null;
+    }
+    
+        public static ArrayList getDistinctLocationsTypes(){
+        try {
+            ArrayList<String> array= new ArrayList<>();
+            String sql = "select distinct name from TypeLocation";
+            Connection database = ConnectionDB.get();
+            ResultSet rs = database.createStatement().executeQuery(sql);
+            
+            while(rs.next()){
+                array.add(rs.getString("name"));        //? "name" de la table TypeLocation dans l'entitité Location
+            }
+            
+            return array;
+        } catch (SQLException ex) {
+            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return null;
     }

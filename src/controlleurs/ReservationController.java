@@ -15,6 +15,7 @@ import utils.ConnectionDB;
 import utils.Pdf;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
+import entities.Location;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -148,25 +149,8 @@ public class ReservationController extends ButtonMenu implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        try {
-            comboFormule.getItems().setAll("Classique", "Confort", "Grand Confort");
-            
-            
-            Connection database = ConnectionDB.get();
-            String sql = "select distinct description from emplacements ";
-            ResultSet rs = database.createStatement().executeQuery(sql);
-                
-            ArrayList<String> desc = new ArrayList<>();
-            
-            while(rs.next()){
-                comboBoxType.getItems().addAll(rs.getString("description"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        
+        ArrayList<String> types= Location.getDistinctLocationsTypes();
+        comboBoxType.getItems().addAll(types); 
     }
     
     public void buttonCreerFacture() throws DocumentException, BadElementException, IOException{

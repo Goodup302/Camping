@@ -6,7 +6,6 @@
 package controlleurs;
 
 import controlleurs.components.ButtonMenu;
-import utils.Config;
 import javafx.scene.control.Label;
 import utils.ConnectionDB;
 import static java.awt.MouseInfo.getPointerInfo;

@@ -51,7 +51,7 @@
       <JFXComboBox fx:id="comboAnnee" layoutX="895.0" layoutY="521.0" prefHeight="25.0" prefWidth="74.0" />
       <Label layoutX="399.0" layoutY="565.0" text="Adresse mail :" />
       <JFXTextField fx:id="textFieldMail" layoutX="399.0" layoutY="582.0" />
-      <JFXButton fx:id="buttonEnregistrer" layoutX="889.0" layoutY="567.0" onAction="#buttonEnregistrer" text="Enregistrer client" />
+      <JFXButton fx:id="buttonEnregistrer" layoutX="829.0" layoutY="637.0" onAction="#buttonEnregistrer" text="Enregistrer client" />
       <TableView fx:id="tableViewClients" layoutX="221.0" layoutY="136.0" onMouseClicked="#test" prefHeight="289.0" prefWidth="619.0">
         <columns>
           <TableColumn fx:id="columnPrenom" prefWidth="88.0" text="Prénom" />
@@ -70,7 +70,7 @@
          </font>
       </Label>
       <JFXButton fx:id="buttonRechercher" layoutX="1023.0" layoutY="150.0" onAction="#buttonRechercher" text="Recherche" />
-      <Label fx:id="labelWarning" layoutX="876.0" layoutY="598.0" prefHeight="87.0" prefWidth="206.0" />
+      <Label fx:id="labelWarning" layoutX="843.0" layoutY="278.0" prefHeight="87.0" prefWidth="206.0" />
       <JFXTextField fx:id="textFieldCodePostal" layoutX="399.0" layoutY="648.0" />
       <Label layoutX="399.0" layoutY="631.0" text="Code Postal :" />
       <JFXButton fx:id="buttonSelectionné" layoutX="859.0" layoutY="205.0" onAction="#buttonSelectionné" prefHeight="31.0" prefWidth="206.0" text="Options clients séléctioné" visible="false" />
@@ -84,5 +84,7 @@
       <JFXTextField fx:id="textFielRue" layoutX="576.0" layoutY="515.0" />
       <Label layoutX="576.0" layoutY="565.0" text="Ville :" />
       <JFXTextField fx:id="textFieldVille" layoutX="576.0" layoutY="582.0" />
+      <JFXTextField fx:id="textFieldImma" layoutX="756.0" layoutY="582.0" prefHeight="31.0" prefWidth="213.0" />
+      <Label layoutX="756.0" layoutY="565.0" text="Immatriculation :" />
    </children>
 </AnchorPane>
