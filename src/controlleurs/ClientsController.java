@@ -7,12 +7,8 @@ package controlleurs;
 
 import controlleurs.components.ButtonMenu;
 import entities.Client;
-import utils.ConnectionDB;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,7 +51,13 @@ public class ClientsController extends ButtonMenu implements Initializable {
     private TextField textFieldNom;
     
     @FXML
-    private TextField textFieldAdresse;
+    private TextField textFieldCodePostal;
+    
+    @FXML
+    private TextField textFieldVille;
+    
+    @FXML
+    private TextField textFieldRue;
     
     @FXML
     private TextField textFieldPrenom;
@@ -84,9 +86,6 @@ public class ClientsController extends ButtonMenu implements Initializable {
     @FXML
     private TableColumn<Client, Integer> columnId;
     
-    //@FXML
-    //private TableColumn<Client, Date> columnNaissance;
-    
     @FXML
     private Button buttonRechercher;
     
@@ -95,6 +94,9 @@ public class ClientsController extends ButtonMenu implements Initializable {
     
     @FXML
     private TextField textFieldTel;
+    
+    @FXML
+    private TextField textFieldImma;
     
     @FXML
     private TextField textFieldFix;
@@ -185,27 +187,10 @@ public class ClientsController extends ButtonMenu implements Initializable {
 
         return test;
     }
-    
-    public boolean checkFields(){
-        if(textFieldNom.getText().compareTo("") == 0 || textFieldPrenom.getText().compareTo("") == 0
-                || textFieldMail.getText().compareTo("") == 0 || textFieldTel.getText().compareTo("") == 0
-                || textFieldFix.getText().compareTo("") == 0 || textFieldAdresse.getText().compareTo("") == 0){
-            labelWarning.setText("Tout les champs doivent etre remplis");
-            return false;
-        }else{
-            return true;
-        }  
-    }
 
     public void buttonEnregistrer(){
             
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            String nom = textFieldNom.getText();
-            String prenom = textFieldPrenom.getText();
-            String tel = textFieldTel.getText();
-            String fix = textFieldFix.getText();
-            String mail = textFieldMail.getText();
-            String adresse = textFieldAdresse.getText();
             String gender;
             String moiss = "";
             
@@ -221,19 +206,13 @@ public class ClientsController extends ButtonMenu implements Initializable {
                 }
             }
             String date = comboJour.getValue().toString() + "-" + moiss + "-" + comboAnnee.getValue().toString();
-            
+
             try {
                 Date datee = formatter.parse(date);
-                java.sql.Date sqlDate = new java.sql.Date(datee.getTime());
-                System.out.println(sqlDate);
-                Connection database = ConnectionDB.get();
-                String sql = "INSERT INTO clients (nom, prenom, numTel, numFix, mail, adresse, dateNaissance, Civilité) Values ('"+nom+"','"+prenom+"','"+tel+"','"+fix+"','"+mail+"','"+adresse+"','"+sqlDate+"', '" + gender + "')";
-                Statement statement = database.createStatement();
-                statement.executeUpdate(sql);
+                Client client = new Client(textFieldPrenom.getText(), textFieldNom.getText(), textFieldFix.getText(), textFieldTel.getText(), new java.sql.Date(datee.getTime()), textFieldMail.getText(), textFieldCodePostal.getText(),textFieldVille.getText(), textFieldRue.getText(), gender, textFieldImma.getText());
+                client.save();
                 Client.getAll();
             } catch (ParseException ex) {
-                Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
                 Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
             }
             tableViewClients.getItems().clear();

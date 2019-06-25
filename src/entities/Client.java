@@ -65,7 +65,7 @@ public class Client {
     
     public Client(String firstName, String lastName, String phone, String mobile,
                     Date birthday, String email, String postalCode, String city,
-                    String civility, String numberPlate){
+                    String street, String civility, String numberPlate){
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -75,6 +75,7 @@ public class Client {
         this.postalCode = postalCode;
         this.city = city;
         this.civility = civility;
+        this.street = street;
         this.numberPlate = numberPlate;
         
     }

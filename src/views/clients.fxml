@@ -45,13 +45,13 @@
       <JFXTextField fx:id="textFieldTel" layoutX="222.0" layoutY="648.0" />
       <JFXTextField fx:id="textFieldFix" layoutX="399.0" layoutY="515.0" />
       <Label layoutX="399.0" layoutY="498.0" text="Numéro de fix :" />
-      <Label layoutX="563.0" layoutY="498.0" text="Date de naissance :" />
-      <JFXComboBox fx:id="comboJour" layoutX="564.0" layoutY="530.0" prefHeight="25.0" prefWidth="66.0" />
-      <JFXComboBox fx:id="comboMois" layoutX="630.0" layoutY="530.0" prefHeight="25.0" prefWidth="89.0" />
-      <JFXComboBox fx:id="comboAnnee" layoutX="709.0" layoutY="530.0" prefHeight="25.0" prefWidth="74.0" />
+      <Label layoutX="749.0" layoutY="491.0" text="Date de naissance :" />
+      <JFXComboBox fx:id="comboJour" layoutX="750.0" layoutY="521.0" prefHeight="25.0" prefWidth="66.0" />
+      <JFXComboBox fx:id="comboMois" layoutX="816.0" layoutY="521.0" prefHeight="25.0" prefWidth="89.0" />
+      <JFXComboBox fx:id="comboAnnee" layoutX="895.0" layoutY="521.0" prefHeight="25.0" prefWidth="74.0" />
       <Label layoutX="399.0" layoutY="565.0" text="Adresse mail :" />
       <JFXTextField fx:id="textFieldMail" layoutX="399.0" layoutY="582.0" />
-      <JFXButton fx:id="buttonEnregistrer" layoutX="844.0" layoutY="494.0" onAction="#buttonEnregistrer" text="Enregistrer client" />
+      <JFXButton fx:id="buttonEnregistrer" layoutX="889.0" layoutY="567.0" onAction="#buttonEnregistrer" text="Enregistrer client" />
       <TableView fx:id="tableViewClients" layoutX="221.0" layoutY="136.0" onMouseClicked="#test" prefHeight="289.0" prefWidth="619.0">
         <columns>
           <TableColumn fx:id="columnPrenom" prefWidth="88.0" text="Prénom" />
@@ -70,15 +70,19 @@
          </font>
       </Label>
       <JFXButton fx:id="buttonRechercher" layoutX="1023.0" layoutY="150.0" onAction="#buttonRechercher" text="Recherche" />
-      <Label fx:id="labelWarning" layoutX="851.0" layoutY="547.0" prefHeight="87.0" prefWidth="206.0" />
-      <JFXTextField fx:id="textFieldAdresse" layoutX="399.0" layoutY="648.0" />
-      <Label layoutX="399.0" layoutY="631.0" text="Adresse physique : " />
+      <Label fx:id="labelWarning" layoutX="876.0" layoutY="598.0" prefHeight="87.0" prefWidth="206.0" />
+      <JFXTextField fx:id="textFieldCodePostal" layoutX="399.0" layoutY="648.0" />
+      <Label layoutX="399.0" layoutY="631.0" text="Code Postal :" />
       <JFXButton fx:id="buttonSelectionné" layoutX="859.0" layoutY="205.0" onAction="#buttonSelectionné" prefHeight="31.0" prefWidth="206.0" text="Options clients séléctioné" visible="false" />
-      <Label layoutX="574.0" layoutY="603.0" text="Civilité :" />
-      <JFXRadioButton fx:id="radioMr" layoutX="576.0" layoutY="633.0" text="Mr">
+      <Label layoutX="576.0" layoutY="631.0" text="Civilité :" />
+      <JFXRadioButton fx:id="radioMr" layoutX="578.0" layoutY="660.0" text="Mr">
          <toggleGroup>
             <ToggleGroup fx:id="civilite" />
          </toggleGroup></JFXRadioButton>
-      <JFXRadioButton fx:id="radioMme" layoutX="643.0" layoutY="633.0" selected="true" text="Mme" toggleGroup="$civilite" />
+      <JFXRadioButton fx:id="radioMme" layoutX="645.0" layoutY="660.0" selected="true" text="Mme" toggleGroup="$civilite" />
+      <Label layoutX="576.0" layoutY="498.0" text="Rue :" />
+      <JFXTextField fx:id="textFielRue" layoutX="576.0" layoutY="515.0" />
+      <Label layoutX="576.0" layoutY="565.0" text="Ville :" />
+      <JFXTextField fx:id="textFieldVille" layoutX="576.0" layoutY="582.0" />
    </children>
 </AnchorPane>
