@@ -144,13 +144,13 @@ public class ClientsController extends ButtonMenu implements Initializable {
             comboJour.getItems().addAll(i);
         }
         
-        columnNom.setCellValueFactory(new PropertyValueFactory<>(Client.NOM));
-        columnPrenom.setCellValueFactory(new PropertyValueFactory<>(Client.PRENOM));
-        columnTel.setCellValueFactory(new PropertyValueFactory<>(Client.NUM_TEL));
-        columnFix.setCellValueFactory(new PropertyValueFactory<>(Client.NUM_FIX));
-        columnMail.setCellValueFactory(new PropertyValueFactory<>(Client.MAIL));
+        columnNom.setCellValueFactory(new PropertyValueFactory<>(Client.LAST_NAME));
+        columnPrenom.setCellValueFactory(new PropertyValueFactory<>(Client.FIRST_NAME));
+        columnTel.setCellValueFactory(new PropertyValueFactory<>(Client.MOBILE));
+        columnFix.setCellValueFactory(new PropertyValueFactory<>(Client.PHONE));
+        columnMail.setCellValueFactory(new PropertyValueFactory<>(Client.EMAIL));
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));    
-        columnAdresse.setCellValueFactory(new PropertyValueFactory<>(Client.ADRESSE)); 
+        columnAdresse.setCellValueFactory(new PropertyValueFactory<>(Client.POSTAL_CODE)); //?
         
         tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));
     }   
@@ -159,7 +159,7 @@ public class ClientsController extends ButtonMenu implements Initializable {
         if(tableViewClients.getSelectionModel().getSelectedItem() != null){
             buttonSelectionné.setVisible(true);
             Client client = tableViewClients.getSelectionModel().getSelectedItem();
-            System.out.println(client.getNom());
+            System.out.println(client.getLastName());
         }
          
     }
@@ -198,31 +198,6 @@ public class ClientsController extends ButtonMenu implements Initializable {
     }
 
     public void buttonEnregistrer(){
-        
-        
-            /*
-            
-            boolean checkFix = false;
-            boolean checkTel = false;
-            boolean checkFields = false;
-            
-            if(!testNumber(textFieldTel.getText())){
-            labelWarning.setText("Champ numéro Téléphone mobil mal rempli");
-            textFieldTel.setText("");
-            checkTel = true;
-            }
-            if(!testNumber(textFieldFix.getText())){
-            labelWarning.setText("Champ numéro Téléphone fix mal rempli");
-            textFieldFix.setText("");
-            checkFix = true;
-            }
-            if(checkFields){
-            checkFields = true;
-            }
-            
-            if(checkFields && checkFix && checkTel){
-            
-            */
             
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
             String nom = textFieldNom.getText();

@@ -1,10 +1,5 @@
 package entities;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.sql.Date;
-import java.text.DecimalFormat;
-
 
 public class Bill {
     public static String BOOKING_ID = "Booking_Id";

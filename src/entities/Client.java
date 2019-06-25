@@ -17,111 +17,146 @@ import java.util.Date;
  * @author Administrateur
  */
 public class Client {
+    final public static String FIRST_NAME = "firstName";
+    final public static String LAST_NAME = "lastName";
+    final public static String PHONE = "phone";
+    final public static String MOBILE = "mobile";
+    final public static String BIRTHDATE = "birthDate";
+    final public static String EMAIL = "email";
+    final public static String STREET = "street";
+    final public static String POSTAL_CODE = "postalCode";
+    final public static String CITY = "city";
+    final public static String CIVILITY = "civility";
+    final public static String NUMBER_PLATE = "numberPlate";
     
-    final public static String DATE_NAISSANCE = "dateNaissance"; 
-    final public static String MAIL = "mail";
-    final public static String NOM = "nom";
-    final public static String PRENOM = "prenom";
-    final public static String NUM_TEL = "numTel";
-    final public static String NUM_FIX = "numFix";
-    final public static String ADRESSE = "adresse";
-    final public static String CIVILITE = "Civilité";
     
     private int id;
-    private String nom;
-    private String prenom;
-    private String numTel;
-    private String numFix;
-    private String mail;
-    private String adresse;
-    private Date dateNaissance;
-    private String civilite;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String mobile;
+    private Date birthday;
+    private String email;
+    private String street;
+    private String postalCode;
+    private String city;
+    private String civility;
+    private String numberPlate;
+    private String address = street + " " + postalCode + " " + city;
+    
     
     public Client(){}
 
     //GETTER - SETTERS
     
     public int getId() {return id;}
-    public String getNom() {return nom;}
-    public String getPrenom() {return prenom;}
-    public String getNumTel() {return numTel;}
-    public String getNumFix() {return numFix;}
-    public String getMail() {return mail;}
-    public String getAdresse() {return adresse;}
-    public Date getNaissance() {return dateNaissance;}
-    public String getCivilite() {return civilite;}
+    public String getFirstName() {return firstName;}
+    public String getLastName() {return lastName;}
+    public String getPhone() {return phone;}
+    public String getMobile() {return mobile;}
+    public Date getBirthday() {return birthday;}
+    public String getEmail() {return email;}
+    public String getPostalCode() {return postalCode;}
+    public String getCity() {return city;}
+    public String getCivility() {return civility;}
+    public String getNumberPlate() {return numberPlate;}
+    public String getAddress() {return address;}
     
     
-    public Client(String cnom, String cprenom, String cnumTel, String cnumFix,
-                    String cmail, String cadresse, Date cdateNaissance){
-        this.nom = cnom;
-        this.prenom = cprenom;
-        this.numTel = cnumTel;
-        this.numFix = cnumFix;
-        this.mail = cmail;
-        this.adresse = cadresse;
-        this.dateNaissance = cdateNaissance;
+    public Client(String firstName, String lastName, String phone, String mobile,
+                    Date birthday, String email, String postalCode, String city,
+                    String civility, String numberPlate){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.mobile = mobile;
+        this.birthday = birthday;
+        this.email = email;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.civility = civility;
+        this.numberPlate = numberPlate;
+        
     }
 
     public Client setId(int id) {
         this.id = id;
         return this;
     }
-    
-    public Client setNom(String nom) {
-        this.nom = nom;
+
+    public Client setFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
     }
 
-    public Client setPrenom(String prenom) {
-        this.prenom = prenom;
+    public Client setLastName(String lastName) {
+        this.lastName = lastName;
         return this;
     }
 
-    public Client setNumTel(String numTel) {
-        this.numTel = numTel;
+    public Client setPhone(String phone) {
+        this.phone = phone;
         return this;
     }
 
-    public Client setNumFix(String numFix) {
-        this.numFix = numFix;
+    public Client setMobile(String mobile) {
+        this.mobile = mobile;
         return this;
     }
 
-    public Client setMail(String mail) {
-        this.mail = mail;
+    public Client setBirthday(Date birthday) {
+        this.birthday = birthday;
         return this;
     }
 
-    public Client setAdresse(String adresse) {
-        this.adresse = adresse;
+    public Client setEmail(String email) {
+        this.email = email;
         return this;
     }
 
-    public Client setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = dateNaissance;
+    public Client setStreet(String street) {
+        this.street = street;
         return this;
     }
 
-    public Client setCivilite(String civilite) {
-        this.civilite = civilite;
+    public Client setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+        return this;
+    }
+
+    public Client setCity(String city) {
+        this.city = city;
+        return this;
+    }
+
+    public Client setCivility(String civility) {
+        this.civility = civility;
+        return this;
+    }
+
+    public Client setNumberPlate(String numberPlate) {
+        this.numberPlate = numberPlate;
         return this;
     }
     
         public boolean save() {
         try {
             Connection database = ConnectionDB.get();
-            String sql = "INSERT INTO `clients` (`dateNaissance`, `mail`, `nom`, `prenom`, `numTel`, `numFix`, `adresse`, `Civilité`) VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO `clients` (`"+FIRST_NAME+"`,`"+LAST_NAME+"`, `"+PHONE+"`, `"+MOBILE+"`, `"+BIRTHDATE+"`, `"+EMAIL+"`, "
+                    + "`"+STREET+"`, `"+POSTAL_CODE+"`, `"+CITY+"`, `"+CIVILITY+"`, `"+NUMBER_PLATE+"`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = database.prepareStatement(sql);
             //
-            ps.setDate(1, new java.sql.Date(dateNaissance.getTime()));
-            ps.setString(2, mail);
-            ps.setString(3, nom);
-            ps.setString(4, prenom);
-            ps.setString(5, numTel);
-            ps.setString(6, numFix);
-            ps.setString(7, adresse);
-            ps.setString(8, civilite);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, phone);
+            ps.setString(4, mobile);
+            ps.setDate(5, new java.sql.Date(birthday.getTime()));
+            ps.setString(6, email);
+            ps.setString(7, street);
+            ps.setString(8, postalCode);
+            ps.setString(9, city);
+            ps.setString(10, civility);
+            ps.setString(11, numberPlate);
             //
             ps.executeUpdate();
             ps.close();
@@ -133,18 +168,23 @@ public class Client {
     public boolean update() {
         try {
             Connection database = ConnectionDB.get();
-            String sql = "UPDATE `locations` SET `dateNaissance`=?, `mail`=?, `nom`=?, `prenom`=?, `numTel`=?, `numFix`=?, `adresse`=?, `Civilité`=? WHERE id=?";
+            String sql = "UPDATE `locations` SET `"+FIRST_NAME+"`=?, `"+LAST_NAME+"`=?, `"+PHONE+"`=?, "
+                    + "`"+MOBILE+"`=?, `"+BIRTHDATE+"`=?, `"+EMAIL+"`=?, `"+STREET+"`=?, `"+POSTAL_CODE+"`=? "
+                    + ", `"+CITY+"`=? , `"+CIVILITY+"`=? , `"+NUMBER_PLATE+"`=? WHERE id=?";
             PreparedStatement ps = database.prepareStatement(sql);
             //
-            ps.setDate(1, new java.sql.Date(dateNaissance.getTime()));
-            ps.setString(2, mail);
-            ps.setString(3, nom);
-            ps.setString(4, prenom);
-            ps.setString(5, numTel);
-            ps.setString(6, numFix);
-            ps.setString(7, adresse);
-            ps.setString(8, civilite);
-            ps.setInt(9, id);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, phone);
+            ps.setString(4, mobile);
+            ps.setDate(5, new java.sql.Date(birthday.getTime()));
+            ps.setString(6, email);
+            ps.setString(7, street);
+            ps.setString(8, postalCode);
+            ps.setString(9, city);
+            ps.setString(10, civility);
+            ps.setString(11, numberPlate);
+            ps.setInt(12, id);
             //
             ps.executeUpdate();
             ps.close();
@@ -161,14 +201,17 @@ public class Client {
             //
             while(rs.next()){
                 list.add((new Client()).setId(rs.getInt("id"))
-                    .setDateNaissance(rs.getDate(DATE_NAISSANCE))
-                    .setMail(rs.getString(MAIL))
-                    .setNom(rs.getString(NOM))
-                    .setPrenom(rs.getString(PRENOM))
-                    .setNumTel(rs.getString(NUM_TEL))
-                    .setAdresse(rs.getString(ADRESSE))
-                    .setCivilite(rs.getString(CIVILITE))
-                    .setNumFix(rs.getString(NUM_FIX)));
+                    .setBirthday(rs.getDate(BIRTHDATE))
+                    .setEmail(rs.getString(EMAIL))
+                    .setFirstName(rs.getString(FIRST_NAME))
+                    .setLastName(rs.getString(LAST_NAME))
+                    .setPhone(rs.getString(PHONE))
+                    .setMobile(rs.getString(MOBILE))
+                    .setStreet(rs.getString(STREET))
+                    .setCity(rs.getString(CITY))
+                    .setCivility(rs.getString(CIVILITY))
+                    .setNumberPlate(rs.getString(NUMBER_PLATE))
+                    .setPostalCode(rs.getString(POSTAL_CODE)));
             }
             //
             return list;

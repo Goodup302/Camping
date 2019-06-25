@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author Eiwan
@@ -17,8 +18,8 @@ import java.util.ArrayList;
 public class Location {
     
     final static String ID = "id";
-    final static String NUMERO = "numero";
-    final static String DESCRIPTION = "description";
+    final static String NUMBER = "number";
+    final static String TYPE_LOCATION_ID = "TypeLocation_id";
     
     private int id;
     private int numero;
@@ -89,8 +90,8 @@ public class Location {
             //
             while(rs.next()){
                 list.add((new Location()).setId(rs.getInt("id"))
-                    .setNumero(rs.getInt(NUMERO))
-                    .setDescription(rs.getString(DESCRIPTION)));
+                    .setNumero(rs.getInt(NUMBER))
+                    .setDescription(rs.getString(TYPE_LOCATION_ID)));
             }
             //
             return list;
@@ -98,4 +99,26 @@ public class Location {
         
         return null;
     }
+    
+    public static ArrayList getLocationsFreeBetweenDates(Date startDate, Date endDate){
+        try {
+            Connection database = ConnectionDB.get();
+            String sql = "select * from Location"
+                    + "inner join Booking on Locations.id = Booking.TypeLocation_id "
+                    + "where '" + startDate + "' < Booking.endDate and '" + endDate + "' > Booking.startDate";
+            ResultSet rs = database.createStatement().executeQuery(sql);
+            ArrayList<Location> list = new ArrayList<>();
+            //
+            while(rs.next()){
+                list.add((new Location()).setId(rs.getInt("id"))
+                    .setNumero(rs.getInt(NUMBER))
+                    .setDescription(rs.getString(TYPE_LOCATION_ID)));
+            }
+            //
+            return list;
+        } catch (Exception e) {e.printStackTrace();;}
+        
+        return null;
+    }
+    
 }
