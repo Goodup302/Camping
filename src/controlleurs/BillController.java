@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Administrateur
  */
-public class DevisController extends ButtonMenu implements Initializable {
+public class BillController extends ButtonMenu implements Initializable {
 
     /**
      * Initializes the controller class.

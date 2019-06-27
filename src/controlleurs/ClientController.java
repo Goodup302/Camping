@@ -36,7 +36,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Administrateur
  */
-public class ClientsController extends ButtonMenu implements Initializable {
+public class ClientController extends ButtonMenu implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -213,7 +213,7 @@ public class ClientsController extends ButtonMenu implements Initializable {
                 client.save();
                 Client.getAll();
             } catch (ParseException ex) {
-                Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
             }
             tableViewClients.getItems().clear();
             tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));

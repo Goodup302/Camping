@@ -142,6 +142,10 @@ public class Client {
         this.numberPlate = numberPlate;
         return this;
     }
+
+    public String getFullAddress(){
+        return this.street + this.postalCode + this.city;
+    }
     
         public boolean save() {
         try {

@@ -31,7 +31,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.Pane;
 
-public class ReservationController extends ButtonMenu implements Initializable {
+public class BookingController extends ButtonMenu implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -231,7 +231,7 @@ public class ReservationController extends ButtonMenu implements Initializable {
                 comboBoxType.getItems().add(rs.getString("description"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingController.class.getName()).log(Level.SEVERE, null, ex);
         }
             
 
@@ -260,7 +260,7 @@ public class ReservationController extends ButtonMenu implements Initializable {
             
             return idEmplacements;
         } catch (SQLException ex) {
-            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingController.class.getName()).log(Level.SEVERE, null, ex);
         }
             return null;
 
@@ -286,7 +286,7 @@ public class ReservationController extends ButtonMenu implements Initializable {
             
             return idEmplacements;
         } catch (SQLException ex) {
-            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingController.class.getName()).log(Level.SEVERE, null, ex);
         }
             return null;
 
@@ -304,7 +304,7 @@ public class ReservationController extends ButtonMenu implements Initializable {
             }
             return  result;
         } catch (SQLException ex) {
-            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
     }

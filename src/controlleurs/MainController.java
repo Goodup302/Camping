@@ -167,7 +167,7 @@ public class MainController extends ButtonMenu implements Initializable {
             }
             return client;
         } catch (SQLException ex) {
-            Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
