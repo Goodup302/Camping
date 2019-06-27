@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 
 public class Bill {
     public static String BOOKING_ID = "Booking_Id";
@@ -7,21 +10,29 @@ public class Bill {
     public static String DATE_PAID = "datePaid";
     
     private int bookingId;
-    private int dateCreation;
+    private Date dateCreation;
     private boolean datePaid;
-    
+
     public int getBookingId() {return bookingId;}
 
-    public int getDateCreation() {return dateCreation;}
+    public Date getDateCreation() {return dateCreation;}
+
+    public boolean isDatePaid() {return datePaid;}
+
+    public Bill(int bookingId, Date dateCreation, boolean datePaid) {
+        this.bookingId = bookingId;
+        this.dateCreation = dateCreation;
+        this.datePaid = datePaid;
+    }
     
-    public boolean getDatePaid() {return datePaid;}
+
 
     public Bill setBookingId(int bookingId){
         this.bookingId = bookingId;
         return this;
     }
     
-    public Bill setDateCreation(int dateCreation){
+    public Bill setDateCreation(Date dateCreation){
         this.dateCreation = dateCreation;
         return this;
     }

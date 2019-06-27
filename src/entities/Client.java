@@ -246,6 +246,21 @@ public class Client {
         return true;
     }
     
+    
+    static public ArrayList getBillsFromClient(int id){
+        try {
+            ArrayList<Integer> idBill = new ArrayList<>();
+            String sql = "select id from bill ";
+            ResultSet rs = ConnectionDB.get().createStatement().executeQuery(sql);
+            while(rs.next()){
+                idBill.add(rs.getInt("Booking_id")); 
+            }
+            return idBill;
+        } catch (SQLException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     /*
     public static ArrayList getUnconfirmedEstimateClient(){
         
