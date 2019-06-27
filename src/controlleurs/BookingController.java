@@ -15,7 +15,7 @@ import utils.ConnectionDB;
 import utils.Pdf;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.DocumentException;
-import entities.Client;
+import entities.User;
 import entities.Location;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -169,7 +169,7 @@ public class BookingController extends ButtonMenu implements Initializable {
     
     public void buttonCreerReservation(){
 
-            if(!Client.checkIfClientExist(textFieldClient.getText())){
+            if(!User.checkIfClientExist(textFieldClient.getText())){
                 labelClientWarning.setText("Client non-trouvé. Veuillez le créer");
             }else{
                                             //? manque a creer la reservation

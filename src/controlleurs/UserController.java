@@ -6,7 +6,7 @@
 package controlleurs;
 
 import controlleurs.components.ButtonMenu;
-import entities.Client;
+import entities.User;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -36,7 +36,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Administrateur
  */
-public class ClientController extends ButtonMenu implements Initializable {
+public class UserController extends ButtonMenu implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -63,28 +63,28 @@ public class ClientController extends ButtonMenu implements Initializable {
     private TextField textFieldPrenom;
     
     @FXML
-    private TableView<Client> tableViewClients;
+    private TableView<User> tableViewClients;
     
     @FXML
-    private TableColumn<Client, String> columnPrenom;
+    private TableColumn<User, String> columnPrenom;
     
     @FXML
-    private TableColumn<Client, String> columnNom;
+    private TableColumn<User, String> columnNom;
     
     @FXML
-    private TableColumn<Client, String> columnTel;
+    private TableColumn<User, String> columnTel;
     
     @FXML
-    private TableColumn<Client, String> columnFix;
+    private TableColumn<User, String> columnFix;
     
     @FXML
-    private TableColumn<Client, String> columnMail;
+    private TableColumn<User, String> columnMail;
     
     @FXML
-    private TableColumn<Client, String> columnAdresse;
+    private TableColumn<User, String> columnAdresse;
     
     @FXML
-    private TableColumn<Client, Integer> columnId;
+    private TableColumn<User, Integer> columnId;
     
     @FXML
     private Button buttonRechercher;
@@ -146,21 +146,21 @@ public class ClientController extends ButtonMenu implements Initializable {
             comboJour.getItems().addAll(i);
         }
         
-        columnNom.setCellValueFactory(new PropertyValueFactory<>(Client.LAST_NAME));
-        columnPrenom.setCellValueFactory(new PropertyValueFactory<>(Client.FIRST_NAME));
-        columnTel.setCellValueFactory(new PropertyValueFactory<>(Client.MOBILE));
-        columnFix.setCellValueFactory(new PropertyValueFactory<>(Client.PHONE));
-        columnMail.setCellValueFactory(new PropertyValueFactory<>(Client.EMAIL));
+        columnNom.setCellValueFactory(new PropertyValueFactory<>(User.LAST_NAME));
+        columnPrenom.setCellValueFactory(new PropertyValueFactory<>(User.FIRST_NAME));
+        columnTel.setCellValueFactory(new PropertyValueFactory<>(User.MOBILE));
+        columnFix.setCellValueFactory(new PropertyValueFactory<>(User.PHONE));
+        columnMail.setCellValueFactory(new PropertyValueFactory<>(User.EMAIL));
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));    
-        columnAdresse.setCellValueFactory(new PropertyValueFactory<>(Client.POSTAL_CODE)); //?
+        columnAdresse.setCellValueFactory(new PropertyValueFactory<>(User.POSTAL_CODE)); //?
         
-        tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));
+        tableViewClients.setItems(FXCollections.observableArrayList(User.getAllClient()));
     }   
     
     public void test(){
         if(tableViewClients.getSelectionModel().getSelectedItem() != null){
             buttonSelectionné.setVisible(true);
-            Client client = tableViewClients.getSelectionModel().getSelectedItem();
+            User client = tableViewClients.getSelectionModel().getSelectedItem();
             System.out.println(client.getLastName());
         }
          
@@ -209,14 +209,14 @@ public class ClientController extends ButtonMenu implements Initializable {
 
             try {
                 Date datee = formatter.parse(date);
-                Client client = new Client(textFieldPrenom.getText(), textFieldNom.getText(), textFieldFix.getText(), textFieldTel.getText(), new java.sql.Date(datee.getTime()), textFieldMail.getText(), textFieldCodePostal.getText(),textFieldVille.getText(), textFieldRue.getText(), gender, textFieldImma.getText());
+                User client = new User(textFieldPrenom.getText(), textFieldNom.getText(), textFieldFix.getText(), textFieldTel.getText(), new java.sql.Date(datee.getTime()), textFieldMail.getText(), textFieldCodePostal.getText(),textFieldVille.getText(), textFieldRue.getText(), gender, textFieldImma.getText());
                 client.save();
-                Client.getAll();
+                User.getAllClient();
             } catch (ParseException ex) {
-                Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
             tableViewClients.getItems().clear();
-            tableViewClients.setItems(FXCollections.observableArrayList(Client.getAll()));
+            tableViewClients.setItems(FXCollections.observableArrayList(User.getAllClient()));
     }
     //}
 }

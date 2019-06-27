@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author Administrateur
  */
-public class Client {
+public class User {
     final public static String FIRST_NAME = "firstName";
     final public static String LAST_NAME = "lastName";
     final public static String PHONE = "phone";
@@ -48,7 +48,7 @@ public class Client {
     private String address = street + " " + postalCode + " " + city;
     
     
-    public Client(){}
+    public User(){}
 
     //GETTER - SETTERS
     
@@ -66,7 +66,7 @@ public class Client {
     public String getAddress() {return address;}
     
     
-    public Client(String firstName, String lastName, String phone, String mobile,
+    public User(String firstName, String lastName, String phone, String mobile,
                     Date birthday, String email, String postalCode, String city,
                     String street, String civility, String numberPlate){
         this.firstName = firstName;
@@ -83,62 +83,62 @@ public class Client {
         
     }
 
-    public Client setId(int id) {
+    public User setId(int id) {
         this.id = id;
         return this;
     }
 
-    public Client setFirstName(String firstName) {
+    public User setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
 
-    public Client setLastName(String lastName) {
+    public User setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
 
-    public Client setPhone(String phone) {
+    public User setPhone(String phone) {
         this.phone = phone;
         return this;
     }
 
-    public Client setMobile(String mobile) {
+    public User setMobile(String mobile) {
         this.mobile = mobile;
         return this;
     }
 
-    public Client setBirthday(Date birthday) {
+    public User setBirthday(Date birthday) {
         this.birthday = birthday;
         return this;
     }
 
-    public Client setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public Client setStreet(String street) {
+    public User setStreet(String street) {
         this.street = street;
         return this;
     }
 
-    public Client setPostalCode(String postalCode) {
+    public User setPostalCode(String postalCode) {
         this.postalCode = postalCode;
         return this;
     }
 
-    public Client setCity(String city) {
+    public User setCity(String city) {
         this.city = city;
         return this;
     }
 
-    public Client setCivility(String civility) {
+    public User setCivility(String civility) {
         this.civility = civility;
         return this;
     }
 
-    public Client setNumberPlate(String numberPlate) {
+    public User setNumberPlate(String numberPlate) {
         this.numberPlate = numberPlate;
         return this;
     }
@@ -201,14 +201,14 @@ public class Client {
         return false;
     }
     
-    public static ArrayList getAll() {
+    public static ArrayList getAllClient() {
         try {
             String sql = "select * from clients";
             ResultSet rs = ConnectionDB.get().createStatement().executeQuery(sql);
-            ArrayList<Client> list = new ArrayList<>();
+            ArrayList<User> list = new ArrayList<>();
             //
             while(rs.next()){
-                list.add((new Client()).setId(rs.getInt("id"))
+                list.add((new User()).setId(rs.getInt("id"))
                     .setBirthday(rs.getDate(BIRTHDATE))
                     .setEmail(rs.getString(EMAIL))
                     .setFirstName(rs.getString(FIRST_NAME))
@@ -245,7 +245,7 @@ public class Client {
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
     }
@@ -261,7 +261,7 @@ public class Client {
             }
             return idBill;
         } catch (SQLException ex) {
-            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
