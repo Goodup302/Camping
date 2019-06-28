@@ -9,14 +9,9 @@
 
 <AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#test" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleurs.ClientsController">
    <children>
-      <ImageView fx:id="imageDisconnect" fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="643.0" onMouseClicked="#disconnect" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="/style/iconShutdown.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="imageHome" fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="15.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/style/iconHome.png" />
+            <Image url="@style/iconHome.png" />
          </image>
       </ImageView>
       <Label layoutX="517.0" layoutY="21.0" text="Clients">

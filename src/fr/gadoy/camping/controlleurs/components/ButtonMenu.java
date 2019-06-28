@@ -61,19 +61,19 @@ public class ButtonMenu {
     
     @FXML
     private void factures(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/factures_.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/factures.fxml"));
         main.getChildren().setAll(pane);
     }
     
     @FXML
     private void devis(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/devis_.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/devis.fxml"));
         main.getChildren().setAll(pane);
     }
     
     @FXML
     private void reservation(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/reservations_.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/reservations.fxml"));
         main.getChildren().setAll(pane);
     }
     

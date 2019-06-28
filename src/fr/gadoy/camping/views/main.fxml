@@ -19,11 +19,6 @@
             <Image url="@style/iconHome.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageDisconnect" fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="644.0" onMouseClicked="#disconnect" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@style/iconShutdown.png" />
-         </image>
-      </ImageView>
       <DatePicker fx:id="datePickerDebut" layoutX="556.0" layoutY="23.0" onAction="#testDate" />
       <DatePicker fx:id="datePickerFin" layoutX="792.0" layoutY="23.0" onAction="#testDate" />
       <Label layoutX="499.0" layoutY="27.0" text="Entre :" />

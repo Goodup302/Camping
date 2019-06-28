@@ -16,12 +16,7 @@
       </Label>
       <ImageView fx:id="imageHome" fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="14.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/style/iconHome.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imageDisconnect" fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="644.0" onMouseClicked="#disconnect" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="/style/iconShutdown.png" />
+            <Image url="@style/iconHome.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="buttonReservations" layoutX="9.0" layoutY="290.0" onAction="#reservation" text="Reservations" />
