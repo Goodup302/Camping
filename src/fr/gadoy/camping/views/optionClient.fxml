@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleurs.OptionClientController">
+   <children>
+      <ImageView fx:id="imageDisconnect" fitHeight="42.0" fitWidth="45.0" layoutX="16.0" layoutY="643.0" onMouseClicked="#disconnect" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/style/iconShutdown.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageHome" fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="15.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/style/iconHome.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="482.0" layoutY="20.0" text="Options client">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="buttonReservations" layoutX="9.0" layoutY="290.0" onAction="#reservation" text="Reservations" />
+      <JFXButton fx:id="buttonFactures" layoutX="22.0" layoutY="337.0" onAction="#factures" text="Factures" />
+      <JFXButton fx:id="buttonClients" layoutX="24.0" layoutY="385.0" onAction="#clients" text="Clients" />
+      <Label layoutX="161.0" layoutY="168.0" text="Prénom :" />
+      <JFXTextField fx:id="textFieldPrenom" layoutX="161.0" layoutY="194.0" />
+      <JFXTextField fx:id="textFieldNom" layoutX="161.0" layoutY="278.0" />
+      <Label layoutX="161.0" layoutY="252.0" text="Nom :" />
+      <Label layoutX="161.0" layoutY="340.0" text="Civilité :" />
+      <Label layoutX="161.0" layoutY="441.0" text="Date de naissance :" />
+      <JFXComboBox fx:id="comboAnnee" layoutX="306.0" layoutY="468.0" prefHeight="25.0" prefWidth="74.0" />
+      <JFXComboBox fx:id="comboMois" layoutX="227.0" layoutY="468.0" prefHeight="25.0" prefWidth="89.0" />
+      <JFXComboBox fx:id="comboJour" layoutX="161.0" layoutY="468.0" prefHeight="25.0" prefWidth="66.0" />
+      <Label layoutX="161.0" layoutY="526.0" text="Numéro fix :" />
+      <JFXTextField fx:id="textFieldFix" layoutX="161.0" layoutY="551.0" />
+      <JFXTextField fx:id="textFieldPortable" layoutX="161.0" layoutY="627.0" />
+      <Label layoutX="161.0" layoutY="602.0" text="Numéro portable :" />
+      <JFXTextField fx:id="textFieldPostal" layoutX="432.0" layoutY="195.0" />
+      <Label layoutX="432.0" layoutY="169.0" text="Code postal :" />
+      <JFXTextField fx:id="textFieldRue" layoutX="432.0" layoutY="278.0" />
+      <Label layoutX="432.0" layoutY="252.0" text="Rue :" />
+      <JFXButton fx:id="buttonEnregistrer" layoutX="419.0" layoutY="539.0" onAction="#buttonEnregistrer" prefHeight="31.0" prefWidth="203.0" text="Enregistrer modifications" />
+      <JFXRadioButton fx:id="radioMr" layoutX="163.0" layoutY="377.0" text="Mr">
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup></JFXRadioButton>
+      <JFXRadioButton fx:id="radioMme" layoutX="236.0" layoutY="377.0" text="Mme" toggleGroup="$gender" />
+      <TableView fx:id="tableViewDevis" layoutX="665.0" layoutY="169.0" prefHeight="253.0" prefWidth="382.0">
+        <columns>
+          <TableColumn fx:id="dateEnvoi" prefWidth="169.0" text="Date envoi" />
+          <TableColumn fx:id="datePaye" prefWidth="116.0" text="Payé" />
+        </columns>
+      </TableView>
+      <Label layoutX="316.0" layoutY="97.0" text="Options :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="799.0" layoutY="97.0" text="Devis / Factures:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="432.0" layoutY="332.0" text="Ville : " />
+      <JFXTextField fx:id="textFieldVille" layoutX="432.0" layoutY="358.0" />
+      <JFXTextField fx:id="textFieldMail" layoutX="435.0" layoutY="469.0" />
+      <Label layoutX="435.0" layoutY="443.0" text="Mail :" />
+   </children>
+</AnchorPane>

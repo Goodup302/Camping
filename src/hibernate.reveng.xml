@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="camping"/>
+  <table-filter match-name="location_has_option"/>
+  <table-filter match-name="mealtype"/>
+  <table-filter match-name="meal"/>
+  <table-filter match-name="option"/>
+  <table-filter match-name="booking"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="selectedoption"/>
+  <table-filter match-name="seasontype"/>
+  <table-filter match-name="typelocation"/>
+  <table-filter match-name="user_has_booking"/>
+  <table-filter match-name="usertype"/>
+  <table-filter match-name="bill"/>
+  <table-filter match-name="location"/>
+</hibernate-reverse-engineering>
