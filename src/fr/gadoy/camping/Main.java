@@ -8,11 +8,9 @@ package fr.gadoy.camping;
 import fr.gadoy.camping.utils.Hibernate;
 import fr.gadoy.camping.entities.Location;
 import fr.gadoy.camping.utils.ConsoleColors;
-import java.net.URI;
 import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
@@ -41,7 +39,7 @@ public class Main extends Application {
 //        } finally {
 //            session.close();
 //        }
-        //
+
         
         launch(args);
     }
