@@ -43,37 +43,37 @@ public class ButtonMenu {
     
     @FXML
     private void home() throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/main.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("/fr/gadoy/camping/views/main.fxml"));
         main.getChildren().setAll(pane);
     }
     
     @FXML
     private void disconnect() throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/login.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("/fr/gadoy/camping/views/login.fxml"));
         main.getChildren().setAll(pane);
     }
     
     @FXML
     private void clients(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/clients.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("/fr/gadoy/camping/views/clients.fxml"));
         main.getChildren().setAll(pane);
     }
     
     @FXML
     private void factures(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/factures.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("/fr/gadoy/camping/views/factures.fxml"));
         main.getChildren().setAll(pane);
     }
     
     @FXML
     private void devis(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/devis.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("/fr/gadoy/camping/views/devis.fxml"));
         main.getChildren().setAll(pane);
     }
     
     @FXML
     private void reservation(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Main.getRoot("views/reservations.fxml"));
+        AnchorPane pane = FXMLLoader.load(Main.getRoot("/fr/gadoy/camping/views/reservations.fxml"));
         main.getChildren().setAll(pane);
     }
     

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#test" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.gadoy.camping.controlleurs.ClientsController">
+   <children>
+      <ImageView fx:id="imageHome" fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="15.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@style/iconHome.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="517.0" layoutY="21.0" text="Clients">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="222.0" layoutY="111.0" text="Liste des clients : ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="buttonReservations" layoutX="9.0" layoutY="290.0" onAction="#reservation" text="Reservations" />
+      <JFXButton fx:id="buttonFactures" layoutX="22.0" layoutY="337.0" onAction="#factures" text="Factures" />
+      <JFXButton fx:id="buttonClients" layoutX="24.0" layoutY="385.0" onAction="#clients" text="Clients" />
+      <Label layoutX="222.0" layoutY="450.0" text="Création d'un nouveau client :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="textFieldPrenom" layoutX="222.0" layoutY="515.0" />
+      <Label layoutX="222.0" layoutY="498.0" text="Prénom :" />
+      <Label layoutX="222.0" layoutY="565.0" text="Nom :" />
+      <JFXTextField fx:id="textFieldNom" layoutX="222.0" layoutY="582.0" />
+      <Label layoutX="222.0" layoutY="631.0" text="Numéro de portable :" />
+      <JFXTextField fx:id="textFieldTel" layoutX="222.0" layoutY="648.0" />
+      <JFXTextField fx:id="textFieldFix" layoutX="399.0" layoutY="515.0" />
+      <Label layoutX="399.0" layoutY="498.0" text="Numéro de fix :" />
+      <Label layoutX="749.0" layoutY="491.0" text="Date de naissance :" />
+      <JFXComboBox fx:id="comboJour" layoutX="750.0" layoutY="521.0" prefHeight="25.0" prefWidth="66.0" />
+      <JFXComboBox fx:id="comboMois" layoutX="816.0" layoutY="521.0" prefHeight="25.0" prefWidth="89.0" />
+      <JFXComboBox fx:id="comboAnnee" layoutX="895.0" layoutY="521.0" prefHeight="25.0" prefWidth="74.0" />
+      <Label layoutX="399.0" layoutY="565.0" text="Adresse mail :" />
+      <JFXTextField fx:id="textFieldMail" layoutX="399.0" layoutY="582.0" />
+      <JFXButton fx:id="buttonEnregistrer" layoutX="829.0" layoutY="637.0" onAction="#buttonEnregistrer" text="Enregistrer client" />
+      <TableView fx:id="tableViewClients" layoutX="221.0" layoutY="136.0" onMouseClicked="#test" prefHeight="289.0" prefWidth="619.0">
+        <columns>
+          <TableColumn fx:id="columnPrenom" prefWidth="88.0" text="Prénom" />
+          <TableColumn fx:id="columnNom" prefWidth="87.0" text="Nom" />
+          <TableColumn fx:id="columnTel" prefWidth="106.0" text="Numéro Tel" />
+          <TableColumn fx:id="columnFix" prefWidth="107.0" text="Numéro Fix" />
+          <TableColumn fx:id="columnMail" prefWidth="107.0" text="Mail" />
+            <TableColumn fx:id="columnAdresse" minWidth="0.0" prefWidth="126.0" text="Adresse" />
+            <TableColumn fx:id="columnId" minWidth="0.0" prefWidth="10.0" text="id" visible="false" />
+        </columns>
+      </TableView>
+      <JFXTextField layoutX="859.0" layoutY="150.0" prefHeight="25.0" prefWidth="155.0" />
+      <Label layoutX="859.0" layoutY="111.0" text="Rechercher :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="buttonRechercher" layoutX="1023.0" layoutY="150.0" onAction="#buttonRechercher" text="Recherche" />
+      <Label fx:id="labelWarning" layoutX="843.0" layoutY="278.0" prefHeight="87.0" prefWidth="206.0" />
+      <JFXTextField fx:id="textFieldCodePostal" layoutX="399.0" layoutY="648.0" />
+      <Label layoutX="399.0" layoutY="631.0" text="Code Postal :" />
+      <JFXButton fx:id="buttonSelectionné" layoutX="859.0" layoutY="205.0" onAction="#buttonSelectionné" prefHeight="31.0" prefWidth="206.0" text="Options clients séléctioné" visible="false" />
+      <Label layoutX="576.0" layoutY="631.0" text="Civilité :" />
+      <JFXRadioButton fx:id="radioMr" layoutX="578.0" layoutY="660.0" text="Mr">
+         <toggleGroup>
+            <ToggleGroup fx:id="civilite" />
+         </toggleGroup></JFXRadioButton>
+      <JFXRadioButton fx:id="radioMme" layoutX="645.0" layoutY="660.0" selected="true" text="Mme" toggleGroup="$civilite" />
+      <Label layoutX="576.0" layoutY="498.0" text="Rue :" />
+      <JFXTextField fx:id="textFielRue" layoutX="576.0" layoutY="515.0" />
+      <Label layoutX="576.0" layoutY="565.0" text="Ville :" />
+      <JFXTextField fx:id="textFieldVille" layoutX="576.0" layoutY="582.0" />
+      <JFXTextField fx:id="textFieldImma" layoutX="756.0" layoutY="582.0" prefHeight="31.0" prefWidth="213.0" />
+      <Label layoutX="756.0" layoutY="565.0" text="Immatriculation :" />
+   </children>
+</AnchorPane>

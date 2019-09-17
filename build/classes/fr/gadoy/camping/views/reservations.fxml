@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.gadoy.camping.controlleurs.ReservationController">
+   <children>
+      <Label layoutX="439.0" layoutY="19.0" text="Reservations">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePickerDebut" layoutX="214.0" layoutY="122.0" onAction="#testDate" />
+      <DatePicker fx:id="datePickerFin" layoutX="214.0" layoutY="195.0" onAction="#testDate" />
+      <Label layoutX="214.0" layoutY="101.0" text="Date début :" />
+      <Label layoutX="214.0" layoutY="174.0" text="Date fin :" />
+      <Label layoutX="214.0" layoutY="246.0" text="Type :" />
+      <Label fx:id="labelNumero" layoutX="214.0" layoutY="332.0" text="Numéro :" />
+      <ImageView fx:id="imageHome" fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="18.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@style/iconHome.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="buttonClients" layoutX="24.0" layoutY="376.0" onAction="#clients" text="Clients" />
+      <JFXButton fx:id="buttonFactures" layoutX="22.0" layoutY="328.0" onAction="#factures" text="Factures" />
+      <JFXButton fx:id="buttonDevis" layoutX="786.0" layoutY="598.0" onAction="#devis" text="Envoyer Devis" />
+      <JFXButton fx:id="buttonReservations" layoutX="9.0" layoutY="281.0" onAction="#reservation" text="Reservations" />
+      <Label fx:id="labelPrix" layoutX="580.0" layoutY="500.0" prefHeight="32.0" prefWidth="141.0" text="Prix :" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Pane fx:id="paneCamping" layoutX="214.0" layoutY="410.0" prefHeight="248.0" prefWidth="251.0" visible="false">
+         <children>
+            <JFXSlider fx:id="sliderPlus13Ans" blockIncrement="1.0" layoutY="34.0" max="20.0" onMouseReleased="#sliderPlus13Ans" prefHeight="14.0" prefWidth="245.0" value="1.0" />
+            <JFXSlider fx:id="sliderMoins13Ans" blockIncrement="1.0" layoutY="134.0" max="20.0" onMouseReleased="#sliderMoins13Ans" prefHeight="14.0" prefWidth="245.0" value="1.0" />
+            <Label text="Nombre de personnes supp. de + de 13 ans :" />
+            <Label layoutX="2.0" layoutY="107.0" text="Nombre de personnes supp. de - de 13 ans :" />
+            <Label fx:id="labelPlus13Ans" layoutX="110.0" layoutY="57.0" text="1" />
+            <Label fx:id="labelMoins13Ans" layoutX="110.0" layoutY="162.0" text="1" />
+            <JFXComboBox fx:id="comboFormule" layoutX="2.0" layoutY="222.0" prefHeight="25.0" prefWidth="245.0" />
+            <Label layoutY="194.0" text="Choix de la formule :" />
+         </children>
+      </Pane>
+      <JFXComboBox fx:id="comboBoxType" layoutX="214.0" layoutY="269.0" onAction="#comboChanged" prefHeight="25.0" prefWidth="174.0" />
+      <JFXComboBox fx:id="comboBoxNumero" layoutX="214.0" layoutY="353.0" prefHeight="25.0" prefWidth="174.0" />
+      <JFXToggleButton fx:id="toggleHandicape" layoutX="200.0" layoutY="310.0" text="Norme handicapé" visible="false" />
+      <Pane fx:id="paneGite" layoutX="214.0" layoutY="450.0" prefHeight="175.0" prefWidth="215.0" visible="false">
+         <children>
+            <JFXToggleButton layoutX="-13.0" text="Ménage" />
+            <JFXSlider fx:id="sliderPersonne" blockIncrement="1.0" layoutX="-4.0" layoutY="99.0" max="12.0" onMouseReleased="#sliderPersonne" prefHeight="14.0" prefWidth="209.0" value="1.0" />
+            <Label layoutX="-4.0" layoutY="71.0" text="Nombre de personnes sup. :" />
+            <Label fx:id="labelPersonne" layoutX="90.0" layoutY="113.0" text="1" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneOptions" layoutX="550.0" layoutY="120.0" prefHeight="424.0" prefWidth="357.0" visible="false">
+         <children>
+            <Label layoutX="138.0" text="Options:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <JFXToggleButton fx:id="toggleAnimaux" layoutX="14.0" layoutY="40.0" text="Animaux" />
+            <JFXToggleButton fx:id="toggleKitBébé" layoutX="14.0" layoutY="80.0" text="Kit bébé" />
+            <JFXToggleButton fx:id="toggleLaveLinge" layoutX="14.0" layoutY="120.0" text="Lave linge" />
+            <JFXToggleButton fx:id="toggleSecheLinge" layoutX="14.0" layoutY="160.0" text="Seche linge" />
+            <JFXToggleButton fx:id="toggleDraps140x190" layoutX="14.0" layoutY="200.0" text="Draps 140 x 190" />
+            <JFXToggleButton fx:id="toggleDraps90x190" layoutX="14.0" layoutY="240.0" text="Draps 90 x 190" />
+            <JFXToggleButton fx:id="toggleServiettes" layoutX="14.0" layoutY="280.0" text="Serviette" />
+         </children>
+      </Pane>
+      <Label fx:id="labelAttention" layoutX="429.0" layoutY="119.0" prefHeight="132.0" prefWidth="174.0" textFill="#ff5114" />
+      <JFXButton fx:id="buttonCreerFacture" layoutX="900.0" layoutY="598.0" onAction="#buttonCreerFacture" text="Créer facture" />
+      <Pane fx:id="paneGiteCollectif" layoutX="214.0" layoutY="416.0" prefHeight="270.0" prefWidth="200.0" visible="false">
+         <children>
+            <JFXToggleButton layoutX="-10.0" layoutY="-15.0" text="Ménage" />
+            <JFXComboBox layoutY="81.0" prefHeight="25.0" prefWidth="174.0" />
+            <Label layoutY="58.0" text="Type :" />
+            <Label layoutX="36.0" layoutY="142.0" text="Nombre d'adultes :" />
+            <Label layoutX="17.0" layoutY="215.0" text="Nombre d'enfants -12 ans :" />
+            <JFXSlider fx:id="sliderNombreAdulte" blockIncrement="1.0" layoutY="168.0" max="40.0" onMouseReleased="#sliderNombreAdulte" prefHeight="14.0" prefWidth="174.0" value="1.0" />
+            <JFXSlider fx:id="sliderNombreMoins12Ans" blockIncrement="1.0" layoutY="242.0" max="40.0" onMouseReleased="#sliderNombreMoins12Ans" prefHeight="14.0" prefWidth="174.0" value="1.0" />
+            <Label fx:id="labelNombreAdultes" layoutX="144.0" layoutY="142.0" text="1" />
+            <Label fx:id="labelNombreMoins12Ans" layoutX="165.0" layoutY="215.0" text="1" />
+         </children>
+      </Pane>
+      <JFXToggleButton fx:id="toggleDraps" layoutX="565.0" layoutY="440.0" text="Draps" visible="false" />
+      <JFXTextField fx:id="textFieldClient" layoutX="627.0" layoutY="598.0" />
+      <Label layoutX="676.0" layoutY="581.0" text="Client :" />
+      <JFXButton fx:id="buttonCreerReservation" layoutX="889.0" layoutY="551.0" onAction="#buttonCreerReservation" text="Créer reservation" />
+      <Label fx:id="labelClientWarning" layoutX="627.0" layoutY="650.0" textFill="#ff5800" />
+   </children>
+</AnchorPane>
